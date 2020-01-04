@@ -66,52 +66,88 @@
         <div class="row">
           <div class="col-md-9 col-lg-8 mx-auto text-center">
             <form class="form-horizontal d-flex flex-column" id="searchForm" onSubmit="return false">
-              <details class="advanced_search">
-                    <summary style="text-align: left; padding-left: 0.5rem;">고급 검색</summary>
-                <div class="form-group d-flex search_option">
-                  <!-- <label>포함할래요</label> -->
-                  <input
-                    type="type"
-                    class="form-control flex-fill"
-                    id="search_contain"
-                    placeholder="포함"
-                  />
-                </div>
-                <div class="form-group d-flex search_option">
-                  <!-- <label>제외할래요</label> -->
-                  <input
-                    type="type"
-                    class="form-control flex-fill"
-                    id="search_except"
-                    placeholder="제외"
-                  />
-                </div>
-                <div class="form-group d-flex search_option">
-                  <!-- <label>유의어</label> -->
-                  <input
-                    type="type"
-                    class="form-control flex-fill"
-                    id="search_synonym"
-                    placeholder="유의어"
-                  />
-                </div>
-                <div class="form-group d-flex search_option">
-                  <!-- <label>확장자</label> -->
-                  <input
-                    type="type"
-                    class="form-control flex-fill"
-                    id="search_filetype"
-                    placeholder="확장자명"
-                  />
-                </div>
-                <div class="form-group d-flex search_option">
-                  <!-- <label>특정 사이트에서 검색</label> -->
-                  <input
-                    type="type"
-                    class="form-control flex-fill"
-                    id="search_site"
-                    placeholder="검색할 사이트명"
-                  />
+
+              <details>
+                <summary style="text-align: left; padding-left: 0.5rem;">고급 검색</summary>
+                <div  class="advanced_search">
+                  <div class="form-group d-flex search_option">
+                    <!-- <label>제외할래요</label> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text purple lighten-3" id="basic-text1">
+                        <i class="fas fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="type"
+                      class="form-control flex-fill"
+                      id="search_include"
+                      placeholder="포함"
+                    />
+                  </div>
+
+
+                  <div class="form-group d-flex search_option">
+                    <!-- <label>제외할래요</label> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text purple lighten-3" id="basic-text1">
+                        <i class="fas fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="type"
+                      class="form-control flex-fill"
+                      id="search_except"
+                      placeholder="제외"
+                    />
+                  </div>
+
+
+                  <div class="form-group d-flex search_option">
+                    <!-- <label>유의어</label> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text purple lighten-3" id="basic-text1">
+                        <i class="fas fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="type"
+                      class="form-control flex-fill"
+                      id="search_synonym"
+                      placeholder="유의어"
+                    />
+                  </div>
+
+
+                  <div class="form-group d-flex search_option">
+                    <!-- <label>확장자</label> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text purple lighten-3" id="basic-text1">
+                        <i class="fas fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="type"
+                      class="form-control flex-fill"
+                      id="search_filetype"
+                      placeholder="확장자명"
+                    />
+                  </div>
+
+
+                  <div class="form-group d-flex search_option">
+                    <!-- <label>특정 사이트에서 검색</label> -->
+                    <div class="input-group-prepend">
+                      <span class="input-group-text purple lighten-3" id="basic-text1">
+                        <i class="fas fa-search text-white" aria-hidden="true"></i>
+                      </span>
+                    </div>
+                    <input
+                      type="type"
+                      class="form-control flex-fill"
+                      id="search_site"
+                      placeholder="검색할 사이트명"
+                    />
+                  </div>
                 </div>
               </details>
             </form>
@@ -191,6 +227,6 @@
     <script src="./js/search.js"></script>
   </body>
   <footer>
-    
+
   </footer>
 </html>
