@@ -26,9 +26,24 @@ document.getElementById("search_site_input").onclick = function() {
   search_site.value = ""
 }
 
-function saveURL() {
+// function saveURL() {
+//   search_content = "https://www.google.com/search?q=" + searchInput.value
+//   console.log(search_except)
+//   if (search_contain.value) {
+//     search_content = search_content + ' "' + search_contain.value + '"'
+//     search_input.value = search_input.value + " " + search_contain.value
+//   }
+//   if (search_except.value) search_content = search_content + " -" + search_except.value
+//   if (search_synonym.value) search_content = search_content + " ~" + search_synonym.value
+//   if (search_site.value) search_content = search_content + " site:" + search_site.value
+//   if (search_filetype.value) search_content = search_content + " filetype:" + search_filetype.value
+
+//   location.href = search_content
+//   return search_content
+// }
+
+function makeURL() {
   search_content = "https://www.google.com/search?q=" + searchInput.value
-  console.log(search_except)
   if (search_contain.value) {
     search_content = search_content + ' "' + search_contain.value + '"'
     search_input.value = search_input.value + " " + search_contain.value
@@ -37,8 +52,11 @@ function saveURL() {
   if (search_synonym.value) search_content = search_content + " ~" + search_synonym.value
   if (search_site.value) search_content = search_content + " site:" + search_site.value
   if (search_filetype.value) search_content = search_content + " filetype:" + search_filetype.value
+  return search_content
+}
 
-  location.href = search_content
+function gotoURL(url) {
+  location.href = url
 }
 
 document.getElementById("search_input").onkeyup = function() {
@@ -109,7 +127,6 @@ document.getElementById("search_site").onkeyup = function() {
 }
 
 function deletePostit(postitNum) {
-  console.log("deletePositit")
   const POSTIT_ID = `postit${postitNum}`
   const POSTIT_DIV = document.getElementById(POSTIT_ID)
   while (POSTIT_DIV.firstChild) {
@@ -122,7 +139,7 @@ function deletePostit(postitNum) {
   const cleanPostits = postits.filter(function(postit) {
     return postit.id !== POSTIT_ID
   })
-  console.log(cleanPostits)
+  console.log({ cleanPostits })
   postits = cleanPostits
   savePostits()
 }
@@ -131,13 +148,13 @@ function savePostits() {
   localStorage.setItem(POSTIT_LS, JSON.stringify(postits))
 }
 
-function paintPostit(postitNum, contents) {
+function paintPostit(postitNum, contents, url) {
   deletePostit(postitNum)
   const POSTIT_ID = `postit${postitNum}`
   const POSTIT_DIV = document.getElementById(POSTIT_ID)
   const postitTitle = document.createElement("h4")
   const delBtn = document.createElement("button")
-  const span = document.createElement("span")
+  const a = document.createElement("a")
   postitTitle.setAttribute("class", "card-title")
   postitTitle.innerText = "Postit"
   delBtn.innerText = "❌"
@@ -145,16 +162,19 @@ function paintPostit(postitNum, contents) {
     deletePostit(postitNum)
   })
   delBtn.setAttribute("class", "btn_custom button_green pull-right centered")
-  span.innerText = contents
+  a.innerText = contents
+  console.log({ url })
+  a.href = url
   // POSTIT_DIV.appendChild(postitTitle)
-  POSTIT_DIV.appendChild(span)
+  POSTIT_DIV.appendChild(a)
   POSTIT_DIV.appendChild(delBtn)
   const postitObj = {
     text: contents,
-    id: POSTIT_ID
+    id: POSTIT_ID,
+    url: url
   }
   postits.push(postitObj)
-  console.log(postits)
+  console.log({ postits })
   savePostits()
   console.log("paintPostit")
 }
@@ -165,7 +185,7 @@ function loadPostit() {
     const parsedPostits = JSON.parse(loadedPostits)
     var postitIndex = 1
     parsedPostits.forEach(function(postit) {
-      paintPostit(postitIndex, postit.text)
+      paintPostit(postitIndex, postit.text, postit.url)
       postitIndex += 1
     })
     console.log("loadPostit")
@@ -178,13 +198,11 @@ function handleSubmit() {
   event.preventDefault()
   const currentValue = searchInput.value
   var currentPostitNum = postits.length
-  console.log(currentValue)
   if (currentValue !== "") {
-    console.log("currentPostitNum = ", currentPostitNum)
     currentPostitNum = (currentPostitNum % POSTIT_COUNT) + 1
-    paintPostit(currentPostitNum, currentValue)
-    // 검색 시작
-    saveURL()
+    const URL = makeURL()
+    paintPostit(currentPostitNum, currentValue, URL)
+    // gotoURL(URL)
   }
   searchInput.value = ""
 }

@@ -54,7 +54,6 @@
   background-color: snow;
   border-radius: 0.25rem;
   padding: 0.5rem;
-
 }
 
 .masthead h2 {
@@ -166,7 +165,7 @@
   padding-left: 0.5rem;
 }
 
-.postit .card span {
+.postit .card a {
   font-size: 1.3rem;
   text-align: center;
   background-color: #ecf0f1;
