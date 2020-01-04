@@ -142,9 +142,9 @@ function paintPostit(postitNum, contents) {
   delBtn.addEventListener("click", function() {
     deletePostit(postitNum)
   })
-  delBtn.setAttribute("class", "btn-sm btn-dark pull-right col-md-6 col-md-offset-3 centered")
+  delBtn.setAttribute("class", "btn_custom green pull-right centered")
   span.innerText = contents
-  //   POSTIT_DIV.appendChild(postitTitle)
+  // POSTIT_DIV.appendChild(postitTitle)
   POSTIT_DIV.appendChild(span)
   POSTIT_DIV.appendChild(delBtn)
   const postitObj = {
