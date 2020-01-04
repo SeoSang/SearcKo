@@ -5,6 +5,27 @@ const POSTIT_LS = "postits"
 const POSTIT_COUNT = 8
 let postits = []
 
+document.getElementById("search_contain_input").onclick = function() {
+  search_contain_input.style.display = "none";
+  search_contain.value = "";
+};
+document.getElementById("search_except_input").onclick = function() {
+  search_except_input.style.display = "none";
+  search_except.value = "";
+};
+document.getElementById("search_synonym_input").onclick = function() {
+  search_synonym_input.style.display = "none";
+  search_synonym.value = "";
+};
+document.getElementById("search_filetype_input").onclick = function() {
+  search_filetype_input.style.display = "none";
+  search_filetype.value = "";
+};
+document.getElementById("search_site_input").onclick = function() {
+  search_site_input.style.display = "none";
+  search_site.value = "";
+};
+
 function saveURL() {
   search_content = "https://www.google.com/search?q=" + searchInput.value
   console.log(search_except)
@@ -20,36 +41,18 @@ function saveURL() {
   location.href = search_content
 }
 
-// function appendHtml(el, str) {
-//   var div = document.createElement("div")
-//   div.innerHTML = str
-
-//   while (div.childeren.length > 0) {
-//     el.appendChild(div.children[0])
-//   }
-// }
-
 document.getElementById("search_input").onkeyup = function() {
-  if (search_input.value) {
-    search_input_fake.style.display = "inline-block"
+  if(search_input.value) {
+    search_input_fake.style.display = "inline-block";
 
-    var searchBasic = $(search_input).val()
-    $(document.body).append('<div id="virtual_dom">' + searchBasic + "</div>")
-
-    // var html = '<div id="search_fake_input">' + searchBasic + '</div>'
-    // appendHtml(document.body, html)
-
-    // var inputLength = search_fake_input.width + 10
-
-    // search_input_fake.style.width = inputLength;
-
-    // var rm = document.querySelector("search_fake_input");
-    // rm.parentNode.removeChild(rm)
+    var searchBasic = $(search_input).val();
+    $(document.body).append('<div id="virtual_dom">' + searchBasic + '</div>');
 
     search_input_fake.value = search_input.value
     search_input_fake.size = search_input_fake.value.length
-  } else {
-    search_input_fake.style.display = "none"
+  }
+  else {
+    search_input_fake.style.display = "none";
   }
 }
 
@@ -57,52 +60,57 @@ document.getElementById("search_input").onkeyup = function() {
 // http://vnthf.logdown.com/posts/2016/05/18/front-input-box
 
 document.getElementById("search_contain").onkeyup = function() {
-  if (search_contain.value) {
-    search_contain_input.style.display = "inline-block"
+  if(search_contain.value) {
+    search_contain_input.style.display = "inline-block";
     search_contain_input.value = search_contain.value
-    search_contain_input.style.zIndex = 100
-  } else {
-    search_contain_input.style.display = "none"
+    search_contain_input.style.zIndex = 100;
+  }
+  else {
+    search_contain_input.style.display = "none";
   }
 }
 
 document.getElementById("search_except").onkeyup = function() {
-  if (search_except.value) {
-    search_except_input.style.display = "inline-block"
+  if(search_except.value) {
+    search_except_input.style.display = "inline-block";
     search_except_input.value = search_except.value
-    search_except_input.style.zIndex = 100
-  } else {
-    search_except_input.style.display = "none"
+    search_except_input.style.zIndex = 100;
+  }
+  else {
+    search_except_input.style.display = "none";
   }
 }
 
 document.getElementById("search_synonym").onkeyup = function() {
-  if (search_synonym.value) {
-    search_synonym_input.style.display = "inline-block"
+  if(search_synonym.value) {
+    search_synonym_input.style.display = "inline-block";
     search_synonym_input.value = search_synonym.value
-    search_synonym_input.style.zIndex = 100
-  } else {
-    search_synonym_input.style.display = "none"
+    search_synonym_input.style.zIndex = 100;
+  }
+  else {
+    search_synonym_input.style.display = "none";
   }
 }
 
 document.getElementById("search_filetype").onkeyup = function() {
-  if (search_filetype.value) {
-    search_filetype_input.style.display = "inline-block"
+  if(search_filetype.value) {
+    search_filetype_input.style.display = "inline-block";
     search_filetype_input.value = search_filetype.value
-    search_filetype_input.style.zIndex = 100
-  } else {
-    search_filetype_input.style.display = "none"
+    search_filetype_input.style.zIndex = 100;
+  }
+  else {
+    search_filetype_input.style.display = "none";
   }
 }
 
 document.getElementById("search_site").onkeyup = function() {
-  if (search_site.value) {
+  if(search_site.value) {
+    search_site_input.style.display = "inline-block";
     search_site_input.value = search_site.value
-    search_site_input.size = search_site.value.length
-    search_site_input.style.zIndex = 100
-  } else {
-    search_site_input.style.zIndex = 1
+    search_site_input.style.zIndex = 100;
+  }
+  else {
+    search_site_input.style.zIndex = 1;
   }
 }
 
@@ -127,6 +135,7 @@ function deletePostit(postitNum) {
 
 function savePostits() {
   localStorage.setItem(POSTIT_LS, JSON.stringify(postits))
+
 }
 
 function paintPostit(postitNum, contents) {
@@ -182,7 +191,7 @@ function handleSubmit() {
     currentPostitNum = (currentPostitNum % POSTIT_COUNT) + 1
     paintPostit(currentPostitNum, currentValue)
     // 검색 시작
-    // saveURL()
+    saveURL()
   }
   searchInput.value = ""
 }
