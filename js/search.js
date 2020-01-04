@@ -206,7 +206,6 @@ function handleSubmit() {
   }
   searchInput.value = ""
 }
-
 function init() {
   loadPostit()
   searchForm.addEventListener("submit", handleSubmit)

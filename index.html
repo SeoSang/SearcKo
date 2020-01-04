@@ -147,12 +147,13 @@
                         <i class="fas fa-search text-white" aria-hidden="true"></i>
                       </span>
                     </div>
-                    <input
-                      type="type"
-                      class="form-control flex-fill"
-                      id="search_site"
-                      placeholder="검색할 사이트명"
-                    />
+                    <select class="form-control flex-fill" name="search_site" id="search_site">
+                      <option value="">사이트 선택</option>
+                      <option value="google.com" selected="selected">Google</option>
+                      <option value="naver.com">Naver</option>
+                      <option value="daum.net">Daum</option>
+                      <option value="bing.com">Bing</option>
+                    </select>
                   </div>
                 </div>
               </details>
