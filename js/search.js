@@ -1,24 +1,59 @@
-const search = document.getElementById("search_input"),
-  searchContents = search.value,
-  searchForm = document.getElementById("searchForm"),
-  postitList = document.querySelector(".js-postitList")
+const searchForm = document.getElementById("searchForm"),
+  searchInput = searchForm.querySelector("input")
+
+const POSTIT_LS = "postits"
+let postits = []
 
 function saveURL() {}
 
 function saveKeyWord() {}
 
-function paintPostit() {
+function savePostits() {
+  localStorage.setItem(POSTIT_LS, JSON.stringify(postits))
+}
+
+function paintPostit(postitNum, contents) {
+  const POSTIT_ID = `postit${postitNum}`
+  const POSTIT_DIV = document.getElementById(POSTIT_ID)
+  console.log(POSTIT_DIV)
   const span = document.createElement("span")
-  const postitContent = searchContents
-  console.log(postitContent)
-  console.log(search)
-  span.innerText = postitContent
-  postitList.appendChild(span)
+  span.innerText = contents
+  POSTIT_DIV.appendChild(span)
+  const postitObj = {
+    text: contents,
+    id: POSTIT_ID
+  }
+  postits.push(postitObj)
+  savePostits()
   console.log("paintPostit")
 }
 
+function loadPostit() {
+  const loadedPostits = localStorage.getItem(POSTIT_LS)
+  if (loadedPostits !== null) {
+    const parsedPostits = JSON.parse(loadedPostits)
+    var postitIndex = 1
+    parsedPostits.forEach(function(postit) {
+      paintPostit(postitIndex, postit.text)
+      postitIndex += 1
+    })
+    console.log("loadPostit")
+  }
+}
+
 function searchFunction() {}
+
+function handleSubmit() {
+  event.preventDefault()
+  const currentValue = searchInput.value
+  const currentPostitNum = postits.length
+  console.log(currentValue)
+  if (currentValue !== "") paintPostit(currentPostitNum + 1, currentValue)
+  searchInput.value = ""
+}
+
 function init() {
-  searchForm.addEventListener("submit", paintPostit)
+  loadPostit()
+  searchForm.addEventListener("submit", handleSubmit)
 }
 init()
