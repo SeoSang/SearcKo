@@ -4,20 +4,18 @@
   margin-right: auto;
 }
 
-.postit-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.postit-list div {
-  height: 25%;
-  width: 22%;
-  margin: 0.5em;
+.postit div {
+  padding-bottom: 0.5em;
 }
 
 .form-group {
   color: white;
 }
+
+.form-group input {
+  height: 100%;
+}
+
 .form-horizontal {
   color: white;
 }
@@ -49,6 +47,9 @@
   background: -webkit-linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
+}
+.advanced_search {
+  background-color: snow;
 }
 
 .masthead h2 {
@@ -193,5 +194,5 @@ a:hover {
 }
 
 footer {
-  padding: 5rem 0;
+  margin: 0rem;
 }
