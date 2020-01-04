@@ -39,21 +39,21 @@
 }
 
 .blue {
-  border: solid 2px #007bff;
+  background-color: #007bff;
 }
 
 .red {
-  border: solid 2px #dc3545;
+  background-color: #dc3545;
 }
 
 .yellow {
-  border: solid 2px #ffc107;
+  background-color: #ffc107;
 }
 
 .green {
-  border: solid 2px #28a745;
+  background-color: #28a745;
 }
 
 .gray {
-  border: solid 2px #6c757d;
+  background-color: #6c757d;
 }
