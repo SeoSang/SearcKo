@@ -29,78 +29,79 @@ function appendHtml(el, str) {
   }
 }
 
-document.getElementById("search_input").onblur = function() {
-  searchBasic = search_input.value;
+document.getElementById("search_input").onkeyup = function() {
+  if(search_input.value) {
+    search_input_fake.style.display = "inline-block";
 
-  // var html = '<div id="search_fake_input">' + searchBasic + '</div>'
-  // appendHtml(document.body, html)
+    var searchBasic = $(search_input).val();
+    $(document.body).append('<div id="virtual_dom">' + searchBasic + '</div>');
 
-  // var inputLength = search_fake_input.width + 10
-
-  // search_input_fake.style.width = inputLength;
-
-  // var rm = document.querySelector("search_fake_input");
-  // rm.parentNode.removeChild(rm)
-
-  search_input_fake.value = search_input.value
-  search_input_fake.size = search_input_fake.value.length
-}
-
-document.getElementById("search_contain").onblur = function() {
-  if(search_contain.value) {
-    search_contain_input.value = search_contain.value
-
-    // width 차후 수정
-    // http://vnthf.logdown.com/posts/2016/05/18/front-input-box
-
-    len = search_contain.value.length
-    console.log(len)
-
-    search_contain_input.size = len
-    console.log(search_contain_input.size)
-
-    search_contain_input.style.zIndex = 100;
-//    alert(document.getElementById("search_contatin_input").style.zIndex)
+    // var html = '<div id="search_fake_input">' + searchBasic + '</div>'
+    // appendHtml(document.body, html)
+  
+    // var inputLength = search_fake_input.width + 10
+  
+    // search_input_fake.style.width = inputLength;
+  
+    // var rm = document.querySelector("search_fake_input");
+    // rm.parentNode.removeChild(rm)
+  
+    search_input_fake.value = search_input.value
+    search_input_fake.size = search_input_fake.value.length
   }
   else {
-    search_contain_input.style.zIndex = 1;
+    search_input_fake.style.display = "none";
   }
 }
 
-document.getElementById("search_except").onblur = function() {
+// width 설정
+// http://vnthf.logdown.com/posts/2016/05/18/front-input-box
+
+document.getElementById("search_contain").onkeyup = function() {
+  if(search_contain.value) {
+    search_contain_input.style.display = "inline-block";
+    search_contain_input.value = search_contain.value
+    search_contain_input.style.zIndex = 100;
+  }
+  else {
+    search_contain_input.style.display = "none";
+  }
+}
+
+document.getElementById("search_except").onkeyup = function() {
   if(search_except.value) {
+    search_except_input.style.display = "inline-block";
     search_except_input.value = search_except.value
-//    search_except_input.size = search_except.value.length
     search_except_input.style.zIndex = 100;
   }
   else {
-    search_except_input.style.zIndex = 1;
+    search_except_input.style.display = "none";
   }
 }
 
-document.getElementById("search_synonym").onblur = function() {
+document.getElementById("search_synonym").onkeyup = function() {
   if(search_synonym.value) {
+    search_synonym_input.style.display = "inline-block";
     search_synonym_input.value = search_synonym.value
-    search_synonym_input.size = search_synonym.value.length
     search_synonym_input.style.zIndex = 100;
   }
   else {
-    search_synonym_input.style.zIndex = 1;
+    search_synonym_input.style.display = "none";
   }
 }
 
-document.getElementById("search_filetype").onblur = function() {
+document.getElementById("search_filetype").onkeyup = function() {
   if(search_filetype.value) {
+    search_filetype_input.style.display = "inline-block";
     search_filetype_input.value = search_filetype.value
-    search_filetype_input.size = search_filetype.value.length
     search_filetype_input.style.zIndex = 100;
   }
   else {
-    search_filetype_input.style.zIndex = 1;
+    search_filetype_input.style.display = "none";
   }
 }
 
-document.getElementById("search_site").onblur = function() {
+document.getElementById("search_site").onkeyup = function() {
   if(search_site.value) {
     search_site_input.value = search_site.value
     search_site_input.size = search_site.value.length
