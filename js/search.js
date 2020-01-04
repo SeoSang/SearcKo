@@ -33,8 +33,8 @@ document.getElementById("search_input").onkeyup = function() {
   if (search_input.value) {
     search_input_fake.style.display = "inline-block"
 
-    var searchBasic = $(search_input).val()
-    $(document.body).append('<div id="virtual_dom">' + searchBasic + "</div>")
+    // var searchBasic = $(search_input).val()
+    // $(document.body).append('<div id="virtual_dom">' + searchBasic + "</div>")
 
     // var html = '<div id="search_fake_input">' + searchBasic + '</div>'
     // appendHtml(document.body, html)
