@@ -4,6 +4,17 @@
   margin-right: auto;
 }
 
+.postit-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.postit-list div {
+  height: 25%;
+  width: 22%;
+  margin: 0.5em;
+}
+
 .form-group {
   color: white;
 }
