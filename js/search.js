@@ -20,15 +20,6 @@ function saveURL() {
   location.href = search_content
 }
 
-function appendHtml(el, str) {
-  var div = document.createElement('div')
-  div.innerHTML = str;
-  
-  while(div.childeren.length > 0) {
-    el.appendChild(div.children[0])
-  }
-}
-
 document.getElementById("search_input").onkeyup = function() {
   if(search_input.value) {
     search_input_fake.style.display = "inline-block";
