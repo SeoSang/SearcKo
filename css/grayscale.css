@@ -162,7 +162,7 @@
   background-color: #467370 !important;
 }
 
-.signup-section {
+.search {
   padding: 10rem 0;
   background: linear-gradient(to bottom, rgba(22, 22, 22, 0.1) 0%, rgba(22, 22, 22, 0.5) 75%, #161616 100%), url("../img/rabbit_forest.jpg");
   background-position: center;
@@ -171,7 +171,7 @@
   background-size: cover;
 }
 
-.signup-section .form-inline input {
+.search .form-inline input {
   box-shadow: 0 0.1875rem 0.1875rem 0 rgba(0, 0, 0, 0.1) !important;
   padding: 1.25rem 2rem;
   height: auto;
@@ -182,33 +182,40 @@
   border: 0;
 }
 
-.contact-section {
-  padding: 5rem 0 0;
+.postit {
+  padding: 3rem 0 0;
 }
 
-.contact-section .card {
+/* 
+.postit .card {
   border: 0;
   border-bottom: 0.25rem solid #64a19d;
+} */
+
+.postit .row{
+  margin: 3rem;
 }
 
-.contact-section .card h4 {
+
+
+.postit .card h4 {
   font-size: 0.8rem;
   font-family: 'Varela Round';
   text-transform: uppercase;
   letter-spacing: 0.15rem;
 }
 
-.contact-section .card hr {
+.postit .card hr {
   border-color: #64a19d;
   border-width: 0.25rem;
   width: 3rem;
 }
 
-.contact-section .social {
+.postit .social {
   margin-top: 5rem;
 }
 
-.contact-section .social a {
+.postit .social a {
   text-align: center;
   height: 3rem;
   width: 3rem;
@@ -218,11 +225,11 @@
   color: rgba(255, 255, 255, 0.3);
 }
 
-.contact-section .social a:hover {
+.postit .social a:hover {
   color: rgba(255, 255, 255, 0.5);
 }
 
-.contact-section .social a:active {
+.postit .social a:active {
   color: #fff;
 }
 
