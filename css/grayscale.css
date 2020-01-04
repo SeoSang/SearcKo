@@ -83,7 +83,10 @@
     border-bottom: 0.25rem solid #64a19d;
   }
 } */
-.form-group label {
+.form-group {
+  color: white;
+}
+.form-horizontal {
   color: white;
 }
 
