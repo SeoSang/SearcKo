@@ -52,6 +52,9 @@
 }
 .advanced_search {
   background-color: snow;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+
 }
 
 .masthead h2 {
