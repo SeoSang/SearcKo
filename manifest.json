@@ -3,18 +3,17 @@
     "name": "GGRR",
     "short_name": "GGRR",
     "version": "2020.01.05",
-  
-    
-    "description": "죽여조...",
-    // "icons": {
-    //     "16" : "icons/icon-16x16.png",
-    //     "48" : "icons/icon-48x48.png",
-    //     "128" : "icons/icon-128x128.png"
-    // },
-  
+    "permissions": ["alarms"],
     "chrome_url_overrides" : {
         "newtab" : "index.html"
     },
-  
+
+    "background": {
+      "scripts": ["./js/linkTracking.js"],
+      "scripts": ["./js/search.js"],
+      "scripts": ["./js/Hello.js"],
+      "persistent": false
+    },
+
     "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com https://code.jquery.com https://use.fontawesome.com; object-src 'self'"
   }
