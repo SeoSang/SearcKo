@@ -5,6 +5,27 @@ const POSTIT_LS = "postits"
 const POSTIT_COUNT = 8
 let postits = []
 
+document.getElementById("search_contain_input").onclick = function() {
+  search_contain_input.style.display = "none";
+  search_contain.value = "";
+};
+document.getElementById("search_except_input").onclick = function() {
+  search_except_input.style.display = "none";
+  search_except.value = "";
+};
+document.getElementById("search_synonym_input").onclick = function() {
+  search_synonym_input.style.display = "none";
+  search_synonym.value = "";
+};
+document.getElementById("search_filetype_input").onclick = function() {
+  search_filetype_input.style.display = "none";
+  search_filetype.value = "";
+};
+document.getElementById("search_site_input").onclick = function() {
+  search_site_input.style.display = "none";
+  search_site.value = "";
+};
+
 function saveURL() {
   search_content = "https://www.google.com/search?q=" + searchInput.value
   console.log(search_except)
@@ -20,15 +41,6 @@ function saveURL() {
   location.href = search_content
 }
 
-function appendHtml(el, str) {
-  var div = document.createElement('div')
-  div.innerHTML = str;
-  
-  while(div.childeren.length > 0) {
-    el.appendChild(div.children[0])
-  }
-}
-
 document.getElementById("search_input").onkeyup = function() {
   if(search_input.value) {
     search_input_fake.style.display = "inline-block";
@@ -36,16 +48,6 @@ document.getElementById("search_input").onkeyup = function() {
     var searchBasic = $(search_input).val();
     $(document.body).append('<div id="virtual_dom">' + searchBasic + '</div>');
 
-    // var html = '<div id="search_fake_input">' + searchBasic + '</div>'
-    // appendHtml(document.body, html)
-  
-    // var inputLength = search_fake_input.width + 10
-  
-    // search_input_fake.style.width = inputLength;
-  
-    // var rm = document.querySelector("search_fake_input");
-    // rm.parentNode.removeChild(rm)
-  
     search_input_fake.value = search_input.value
     search_input_fake.size = search_input_fake.value.length
   }
@@ -103,8 +105,8 @@ document.getElementById("search_filetype").onkeyup = function() {
 
 document.getElementById("search_site").onkeyup = function() {
   if(search_site.value) {
+    search_site_input.style.display = "inline-block";
     search_site_input.value = search_site.value
-    search_site_input.size = search_site.value.length
     search_site_input.style.zIndex = 100;
   }
   else {
@@ -133,6 +135,7 @@ function deletePostit(postitNum) {
 
 function savePostits() {
   localStorage.setItem(POSTIT_LS, JSON.stringify(postits))
+
 }
 
 function paintPostit(postitNum, contents) {
@@ -157,7 +160,7 @@ function paintPostit(postitNum, contents) {
     text: contents,
     id: POSTIT_ID
   }
-  postits.unshift(postitObj)
+  postits.push(postitObj)
   console.log(postits)
   savePostits()
   console.log("paintPostit")
@@ -188,7 +191,7 @@ function handleSubmit() {
     currentPostitNum = (currentPostitNum % POSTIT_COUNT) + 1
     paintPostit(currentPostitNum, currentValue)
     // 검색 시작
-    // saveURL()
+    saveURL()
   }
   searchInput.value = ""
 }

@@ -21,31 +21,38 @@
     cursor: pointer;
 }
 
-.blue {
-    color: #fff;
+.search_btn:hover {
+    background-color: rgba(1,1,1,0.3) !important;
+    border: solid 1px rgba(1,1,1,0.3) transparent !important;
+    color: white;
+}
+
+.disabled {
+    display: none;
+}
+
+.blue_btn {
+    border: solid 1px #007bff transparent;
     background-color: #007bff;
-    border-color: #007bff;
+    color: white;
+}
+
+.blue {
+    border: solid 2px #007bff;
 }
 
 .red {
-    color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
+    border: solid 2px #dc3545;
 }
 
 .yellow {
-    color: #212529;
-    background-color: #ffc107;
-    border-color: #ffc107;
+    border: solid 2px #ffc107;
 }
 
 .green {
-    color: #28a745;
-    background-color: transparent;
-    border-color: #28a745;
+    border: solid 2px #28a745;
 }
 
 .gray {
-    color: #fff;
-    background-color: #6c757d;
+    border: solid 2px #6c757d;
 }
