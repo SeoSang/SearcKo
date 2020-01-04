@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .search_btn {
     display: inline-block;
     font-weight: 400;
@@ -55,4 +56,56 @@
 
 .gray {
     border: solid 2px #6c757d;
+=======
+.search_btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.175rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    margin: 0.2rem 0.25rem 0 0.25rem;
+}
+
+.search_btn {
+    cursor: pointer;
+}
+
+.blue {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.red {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.yellow {
+    color: #212529;
+    background-color: #ffc107;
+    border-color: #ffc107;
+}
+
+.green {
+    color: #28a745;
+    background-color: transparent;
+    border-color: #28a745;
+}
+
+.gray {
+    color: #fff;
+    background-color: #6c757d;
+>>>>>>> 8ec333643287f43531444a38c073a7584ff4ff5d
 }
