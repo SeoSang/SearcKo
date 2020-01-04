@@ -31,7 +31,23 @@
           <div class="col-md-10 col-lg-8 mx-auto text-center">
             <i class="fas fa-tree fa-2x mb-2 text-white"></i>
             <h2 class="text-white mb-5">GGRR</h2>
-            <form class="form-horizontal d-flex flex-column" id="searchForm">
+            <form
+              class="form-horizontal d-flex flex-column"
+              id="searchForm"
+              action="/"
+              onSubmit="return false"
+            >
+              <div class="form-group d-flex">
+                <!-- <label>기본 검색</label> -->
+                <input
+                  type="type"
+                  class="form-control flex-fill"
+                  id="search"
+                  placeholder=""
+                  autofocus=""
+                />
+              </div>
+              <!-- fold unfold -->
               <details>
                 <summary>특수검색</summary>
                 <p>당신을 위한 검색</p>
