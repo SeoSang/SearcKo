@@ -7,7 +7,9 @@
 .postit div {
   padding-bottom: 0.5em;
 }
-
+.advanced_search summary {
+  color: black;
+}
 .form-group {
   color: white;
 }
