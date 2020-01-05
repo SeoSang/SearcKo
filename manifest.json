@@ -9,11 +9,18 @@
     },
 
     "background": {
-      "scripts": ["./js/linkTracking.js"],
       "scripts": ["./js/search.js"],
-      "scripts": ["./js/Hello.js"],
       "persistent": false
     },
+
+
+      "content_scripts": [
+        {
+          "matches": ["https://www.google.com/search?*"],
+          "js": ["./js/linkTracking.js"]
+        }
+      ],
+
 
     "content_security_policy": "script-src 'self' https://cdnjs.cloudflare.com https://stackpath.bootstrapcdn.com https://code.jquery.com https://use.fontawesome.com; object-src 'self'"
   }

@@ -1,24 +1,15 @@
-// $(document).ready(function(){
-//
-//     $('a[href^="https://"]').click(function(e){
-//
-//       console.log("SSS");
-//     });
-//
-// });
+console.log("hello");
 
+const candidateURL = document.querySelector("a");
+const POSTIT_LS = "postits";
 
-chrome.tabs.query(object queryInfo, function callback)
+function init(){
+  candidateURL.addEventListener("click", getURL);
+}
+init();
 
-
-$(function() {
-
- chrome.tabs.query({highlighted: true}, function(tabs) {
-   var activeTab = tabs[0];
-   chrome.tabs.sendMessage(activeTab.id, {"message": "fetch_top_domains"});
- });
-});
-
-chrome.tabs.getSelected(null,function(tab) {
-    var tablink = tab.url;
-});
+function getURL(event){
+  const objectURL = event.target.href;
+  console.log({objectURL});
+//  localStorage.setitem(POSTIT_LS.)
+}
