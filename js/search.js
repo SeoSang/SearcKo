@@ -63,6 +63,11 @@ document.getElementById("search_input").onkeyup = function() {
   if (search_input.value) {
     search_input_fake.style.display = "inline-block"
 
+<<<<<<< HEAD
+=======
+    var searchBasic = $(search_input).val()
+
+>>>>>>> 5f16c10b7121de06041d67b751e7f812392edd03
     search_input_fake.value = search_input.value
     search_input_fake.size = search_input_fake.value.length
   } else {
