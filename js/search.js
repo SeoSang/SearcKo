@@ -74,7 +74,9 @@ document.getElementById("search_input").onkeyup = function() {
 // http://vnthf.logdown.com/posts/2016/05/18/front-input-box
 
 document.getElementById("search_contain").onkeyup = function() {
-  if (search_contain.value) {
+  if (search_contain.value.length > 5) {
+  }
+  else if (search_contain.value) {
     search_contain_input.style.display = "inline-block"
     search_contain_input.value = search_contain.value
     search_contain_input.style.zIndex = 100
@@ -84,7 +86,9 @@ document.getElementById("search_contain").onkeyup = function() {
 }
 
 document.getElementById("search_except").onkeyup = function() {
-  if (search_except.value) {
+  if (search_except.value.length > 5) {
+  }
+  else if (search_except.value) {
     search_except_input.style.display = "inline-block"
     search_except_input.value = search_except.value
     search_except_input.style.zIndex = 100
@@ -94,7 +98,9 @@ document.getElementById("search_except").onkeyup = function() {
 }
 
 document.getElementById("search_synonym").onkeyup = function() {
-  if (search_synonym.value) {
+  if (search_synonym.value.length > 5) {
+  }
+  else if (search_synonym.value) {
     search_synonym_input.style.display = "inline-block"
     search_synonym_input.value = search_synonym.value
     search_synonym_input.style.zIndex = 100
@@ -104,7 +110,9 @@ document.getElementById("search_synonym").onkeyup = function() {
 }
 
 document.getElementById("search_filetype").onkeyup = function() {
-  if (search_filetype.value) {
+  if (search_filetype.value.length > 5) {
+  }
+  else if (search_filetype.value) {
     search_filetype_input.style.display = "inline-block"
     search_filetype_input.value = search_filetype.value
     search_filetype_input.style.zIndex = 100
@@ -114,7 +122,9 @@ document.getElementById("search_filetype").onkeyup = function() {
 }
 
 document.getElementById("search_site").onkeyup = function() {
-  if (search_site.value) {
+  if (search_site.value.length > 5) {
+  }
+  else if (search_site.value) {
     search_site_input.style.display = "inline-block"
     search_site_input.value = search_site.value
     search_site_input.style.zIndex = 100
@@ -199,11 +209,10 @@ function handleSubmit() {
     currentPostitNum = (currentPostitNum % POSTIT_COUNT) + 1
     const URL = makeURL()
     paintPostit(currentPostitNum, currentValue, URL)
-    // gotoURL(URL)
+    gotoURL(URL)
   }
   searchInput.value = ""
 }
-
 function init() {
   loadPostit()
   searchForm.addEventListener("submit", handleSubmit)

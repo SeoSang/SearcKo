@@ -18,14 +18,15 @@
   margin: 0.2rem 0.25rem 0 0.25rem;
 }
 
-.search_btn {
-  cursor: pointer;
-}
-
 .search_btn:hover {
+  cursor: pointer;
   background-color: rgba(1, 1, 1, 0.3) !important;
   border: solid 1px rgba(1, 1, 1, 0.3) transparent !important;
   color: white;
+}
+
+#bb {
+  cursor: default;
 }
 
 .disabled {
