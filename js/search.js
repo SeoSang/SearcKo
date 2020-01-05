@@ -64,7 +64,6 @@ document.getElementById("search_input").onkeyup = function() {
     search_input_fake.style.display = "inline-block"
 
     var searchBasic = $(search_input).val()
-    $(document.body).append('<div id="virtual_dom">' + searchBasic + "</div>")
 
     search_input_fake.value = search_input.value
     search_input_fake.size = search_input_fake.value.length
